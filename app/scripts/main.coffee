@@ -6,3 +6,7 @@ conn.on 'open', =>
 
 conn.on 'data', (id) =>
     console.log id
+
+dartsUi = new DartsUi document.getElementById('darts-ui')
+dartsUi.setListener (score, ratio) ->
+    console.log score + ', ' + ratio + ' = ' + score * ratio
