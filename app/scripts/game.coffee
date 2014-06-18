@@ -25,6 +25,7 @@ class Game
         footerHeight = $('.footer').height() + 11
         canvasHeight = bodyHeight - headerHeight - footerHeight
         length = (Math.min $('body').width(), canvasHeight) - 20
-        $('#darts-ui').width(length).height(length)
+        marginLeft = ($('.container').width() - length) / 2
+        $('#darts-ui').width(length).height(length).css('margin-left', marginLeft)
 
 window.Game = Game
