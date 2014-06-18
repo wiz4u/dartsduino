@@ -19,6 +19,8 @@ class Game
         dartsUi.setListener (score, ratio) ->
             console.log score + ', ' + ratio + ' = ' + score * ratio
 
+        $('#start-button').click @start
+
     resizeWindow: ->
         bodyHeight = $('body').height()
         headerHeight = $('.header').height() + 11
@@ -27,5 +29,8 @@ class Game
         length = (Math.min $('body').width(), canvasHeight) - 20
         marginLeft = ($('.container').width() - length) / 2
         $('#darts-ui').width(length).height(length).css('margin-left', marginLeft)
+
+    start: =>
+        console.log 'Start'
 
 window.Game = Game
