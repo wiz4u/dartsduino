@@ -23,7 +23,7 @@ class Game
         bodyHeight = $('body').height()
         headerHeight = $('.header').height() + 11
         footerHeight = $('.footer').height() + 11
-        canvasHeight = bodyHeight - headerHeight - footerHeight
+        canvasHeight = bodyHeight - headerHeight - footerHeight - 40
         length = (Math.min $('body').width(), canvasHeight) - 20
         marginLeft = ($('.container').width() - length) / 2
         $('#darts-ui').width(length).height(length).css('margin-left', marginLeft)

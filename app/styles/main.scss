@@ -61,3 +61,14 @@ html, body {
         margin-bottom: 10px;
     }
 }
+
+.center {
+    width: 10em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -120%);
+}
+
+#darts-ui {
+    margin-bottom: 40px;
+}
