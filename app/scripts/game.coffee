@@ -23,7 +23,8 @@ class Game
         bodyHeight = $('body').height()
         headerHeight = $('.header').height() + 11
         footerHeight = $('.footer').height() + 11
-        canvasHeight = bodyHeight - headerHeight - footerHeight - 20
-        $('#darts-ui').width(canvasHeight).height(canvasHeight)
+        canvasHeight = bodyHeight - headerHeight - footerHeight
+        length = (Math.min $('body').width(), canvasHeight) - 20
+        $('#darts-ui').width(length).height(length)
 
 window.Game = Game
