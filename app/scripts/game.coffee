@@ -19,7 +19,7 @@ class Game
         dartsUi.setListener (score, ratio) ->
             console.log score + ', ' + ratio + ' = ' + score * ratio
 
-        $('#start-button').click @start
+        $('#select-button').click @start
 
     resizeWindow: ->
         bodyHeight = $('body').height()
@@ -32,5 +32,8 @@ class Game
 
     start: =>
         console.log 'Start'
+
+        $('#myModal').modal('hide')
+        $('#start-button').hide()
 
 window.Game = Game
