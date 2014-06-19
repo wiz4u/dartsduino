@@ -2,6 +2,12 @@
 
 class Game
 
+    State =
+        NOT_STARTED: 0
+        PLAYING: 1
+
+    state: State.NOT_STARTED
+
     constructor: ->
         peer = new Peer 'server', {host: 'localhost', port: 9999}
         conn = peer.connect 'device'
@@ -20,6 +26,7 @@ class Game
             console.log score + ', ' + ratio + ' = ' + score * ratio
 
         $('#select-button').click @start
+        $('#cancel-button').click @cancel
 
     resizeWindow: ->
         bodyHeight = $('body').height()
@@ -31,9 +38,27 @@ class Game
         $('#darts-ui').width(length).height(length).css('margin-left', marginLeft)
 
     start: =>
-        console.log 'Start'
+        # console.log 'Start'
 
         $('#myModal').modal('hide')
-        $('#start-button').hide()
+        @changeState State.PLAYING
+
+    cancel: =>
+        # console.log 'Cancel'
+
+        @changeState State.NOT_STARTED
+
+    changeState: (state) =>
+        oldState = @state
+        @state = state
+
+        switch state
+            when State.NOT_STARTED
+                $('#start-button').show()
+                $('#cancel-button').hide()
+
+            when State.PLAYING
+                $('#start-button').hide()
+                $('#cancel-button').show()
 
 window.Game = Game
